@@ -51,8 +51,12 @@ npm run preview
 ```
 src/
 ├── components/     # UI Components
-├── pages/         # Page Components
-├── hooks/         # Custom Hooks
-├── lib/           # Utility Library
-└── main.tsx       # Application Entry Point
+├── pages/          # Page Components
+├── hooks/          # Custom Hooks
+├── lib/            # Utility Library
+└── main.tsx        # Application Entry Point
 ```
+
+## Deployment
+
+This project is configured to use npm for package management. The `vercel.json` file ensures Vercel uses npm instead of auto-detecting other package managers.
