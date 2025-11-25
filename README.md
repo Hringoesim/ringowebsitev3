@@ -1,82 +1,58 @@
-# Edge Functions Testing Quick Reference
+# Project Build Guide
 
-## Running Specific Test Files
+## Tech Stack
 
-### Using npm scripts
-```bash
-# Run a specific test file
-npm run test:edge-functions:file tests/my-function.test.ts
+This project is built using the following technologies:
 
-# Run all tests
-npm run test:edge-functions
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
+## Prerequisites
 
-### Using Deno directly
-```bash
-# Run a specific test file
-deno test --allow-net --allow-env tests/my-function.test.ts
+Make sure your system has Node.js and npm installed.
 
-# Run all tests in tests directory
-deno test --allow-net --allow-env tests/
+We recommend using nvm to install Node.js: [nvm Installation Guide](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-# Run tests matching a pattern
-deno test --allow-net --allow-env tests/*.test.ts
+## Install Dependencies
+
+```sh
+npm install
 ```
 
-### Using Deno tasks
-```bash
-# Run a specific test file
-deno task test -- tests/my-function.test.ts
+## Development Server
 
-# Run all tests
-deno task test
+Start the development server with hot reload and instant preview:
+
+```sh
+npm run dev
 ```
 
-## Environment Variables Setup
+## Build Project
 
-### Option 1: Using .env File (Recommended)
-```bash
-# Create .env file from template
-cp tests/env.example .env
+Build for production:
 
-# Edit .env file with your actual values
-# The file will be automatically loaded when running tests
+```sh
+npm run build
 ```
 
-### Option 2: Export Environment Variables
-```bash
-export SUPABASE_URL="https://your-project-ref.supabase.co"
-export SUPABASE_ANON_KEY="your-anon-key"
+## Preview Build
+
+Preview the built project:
+
+```sh
+npm run preview
 ```
 
-### Environment Variables Loading Order
-1. **System environment variables** (exported in shell)
-2. **`.env` file** (automatically loaded with `--env-file=.env`)
-3. **Code-set variables** (using `Deno.env.set()`)
+## Project Structure
 
-## Test File Structure
-
-```typescript
-import { assertEquals, assertExists } from "../deps.ts"
-
-const FUNCTION_NAME = "your-function-name"
-
-Deno.test("Your Function - Basic Test", async () => {
-  // Your test implementation
-})
 ```
-
-## Available Test Files
-
-- `remote-advanced.test.ts` - Advanced remote tests using fetch
-- `supabase-client.test.ts` - Tests using Supabase client library
-- `my-function.test.ts` - Template for custom function tests
-
-## Creating Edge Functions
-
-To create a new Edge Function:
-
-1. Create a new `.ts` file directly in the `supabase/edge_function/` directory
-2. Copy `example-function.ts` as a starting point
-3. Implement your function logic
-4. Create corresponding test files in the `tests/` directory
+src/
+├── components/     # UI Components
+├── pages/         # Page Components
+├── hooks/         # Custom Hooks
+├── lib/           # Utility Library
+└── main.tsx       # Application Entry Point
+```
