@@ -234,9 +234,12 @@ const Index = () => {
               >
                 Join the Waitlist
               </button>
-              <button className="btn-secondary text-lg px-10 py-4 bg-white">
+              <a
+                href="/contact"
+                className="btn-secondary text-lg px-10 py-4 bg-white inline-flex items-center justify-center"
+              >
                 Contact Sales
-              </button>
+              </a>
             </div>
           </div>
         </section>
